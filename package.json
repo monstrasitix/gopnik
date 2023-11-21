@@ -1,0 +1,13 @@
+{
+  "name": "gopnik",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "sass": "sass --load-path=./web/load --load-path=./node_modules/ui ./web/sass:./static/css"
+  },
+  "devDependencies": {
+    "sass": "^1.69.5",
+    "ui": "../ui/"
+  }
+}
