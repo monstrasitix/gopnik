@@ -1,5 +1,19 @@
 {{ define "body" }}
     <div class="container -page">
-        <h1 class="heading">Main page</h1>
+        <h1 class="heading -title">Main page</h1>
+
+        <button type="button" class="button -primary">Primary</button>
+        <button type="button" class="button -secondary">Secondary</button>
+
+        <br />
+
+        <button disabled type="button" class="button -primary">Primary</button>
+        <button disabled type="button" class="button -secondary">Secondary</button>
+
+        <br />
+
+        <input type="text" class="input" />
+        <br />
+        <input disabled type="text" class="input" />
     </div>
 {{ end }}
