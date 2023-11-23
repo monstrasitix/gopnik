@@ -1,0 +1,7 @@
+@use "../abstract/color";
+@use "../abstract/font";
+
+.button {
+    &.-primary {}
+    &.-secondary {}
+}

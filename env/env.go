@@ -15,4 +15,3 @@ func env(name string) func () string {
 		return os.Getenv(name)
 	}
 }
-

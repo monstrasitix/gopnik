@@ -1,0 +1,21 @@
+// General
+$white: white !default;
+$black: black !default;
+$none: transparent !default;
+
+// Font
+$text-on-dark: #ffffff !default;
+$text-on-light: #333333 !default;
+$text-on-disabled: gray !default;
+
+// States
+$disabled: lightgray !default;
+
+// Thematic
+$primary: dodgerblue !default;
+$primary-hover: #1881ea !default;
+$primary-active: #156cc3 !default;
+
+$error: crimson !default;
+$error-hover: #bd1335 !default;
+$error-active: #9e122e !default;

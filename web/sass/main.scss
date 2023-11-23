@@ -1,3 +1,14 @@
-@use "scss/element/button.scss";
-@use "scss/element/icon.scss";
-@use "scss/element/input.scss";
+@use "./base";
+
+// Elements
+@use "./element/button.scss";
+@use "./element/input.scss";
+
+// @use "scss/element/button.scss";
+// @use "scss/element/icon.scss";
+// @use "scss/element/input.scss";
+// @use "scss/element/heading.scss";
+
+// Layouts
+@use "./layout/grid";
+@use "./layout/container";

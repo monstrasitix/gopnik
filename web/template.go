@@ -2,7 +2,7 @@ package web
 
 import (
 	"html/template"
-	"io"
+	"net/http"
 )
 
 var (
@@ -15,10 +15,11 @@ const (
 
 func ConfigureTemplates() {
 	Template["index"] = must(LAYOUT_MAIN, "./web/view/index.html")
-	Template["about"] = must(LAYOUT_MAIN, "./web/view/about.html")
 }
 
-func View(w io.Writer, name string, payload any) {
+func View(w http.ResponseWriter, name string, payload any) {
+	w.Header().Set("Content-Type", "text/html")
+
 	Template[name].ExecuteTemplate(w, "base", payload)
 }
 

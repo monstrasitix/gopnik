@@ -4,10 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "sass": "sass --load-path=./web/load --load-path=./node_modules/ui ./web/sass:./static/css"
+    "sass": "sass ./web/sass:./static/css --no-source-map"
   },
   "devDependencies": {
-    "sass": "^1.69.5",
-    "ui": "../ui/"
+    "sass": "^1.69.5"
   }
 }

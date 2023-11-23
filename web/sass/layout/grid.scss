@@ -1,0 +1,11 @@
+.grid {
+    gap: 1rem;
+    display: grid;
+
+
+    @each $num in (2, 3, 4) {
+        &.-cols-#{$num} {
+            grid-template-columns: repeat(#{$num}, 1fr);
+        }
+    }
+}
