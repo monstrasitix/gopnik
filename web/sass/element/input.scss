@@ -1,1 +1,28 @@
-.input {}
+@use "../abstract/color";
+@use "../abstract/font";
+
+.input {
+    font-size: font.$control-size;
+    font-family: font.$control-family;
+
+    padding: 0.7em 1.3em;
+
+    outline: none;
+    border-width: 0;
+    border-radius: 0.25rem;
+
+    vertical-align: middle;
+
+    background-color: color.$white;
+
+    &:disabled {
+        cursor: not-allowed;
+
+        &,
+        &:hover,
+        &:active {
+            color: color.$text-on-disabled;
+            background-color: color.$disabled;
+        }
+    }
+}
