@@ -3,12 +3,24 @@
 // Elements
 @use "./element/button.scss";
 @use "./element/input.scss";
-
-// @use "scss/element/button.scss";
-// @use "scss/element/icon.scss";
-// @use "scss/element/input.scss";
-// @use "scss/element/heading.scss";
+@use "./element/typography.scss";
 
 // Layouts
 @use "./layout/grid";
+@use "./layout/level";
 @use "./layout/container";
+
+
+html {
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #ededed;
+}
+
+.box {
+    min-height: 200px;
+    background-color: silver;
+}

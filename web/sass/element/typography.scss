@@ -1,0 +1,20 @@
+@use "../abstract/font";
+
+.heading {
+    font-size: font.$base-size;
+    font-family: font.$base-family;
+    margin: 1rem 0;
+
+    &.-title {
+        font-size: 2rem;
+    }
+
+    &.-subtitle {
+        font-size: 1.5rem;
+    }
+}
+
+.paragraph {
+    font-family: font.$base-family;
+    font-size: font.$base-size;
+}

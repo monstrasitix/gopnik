@@ -17,12 +17,20 @@ func ConfigureTemplates() {
 	Template["index"] = must(LAYOUT_MAIN, "./web/view/index.html")
 }
 
-func View(w http.ResponseWriter, name string, payload any) {
-	w.Header().Set("Content-Type", "text/html")
-
-	Template[name].ExecuteTemplate(w, "base", payload)
-}
-
 func must(paths ...string) *template.Template {
 	return template.Must(template.ParseFiles(paths...))
+}
+
+type ViewHandler struct {
+    Name string
+    Title string
+}
+
+func (v ViewHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+    w.Header().Set("Content-Type", "text/html")
+
+	Template[v.Name].ExecuteTemplate(w, "base", map[string]string{
+        "lang": "en",
+        "title": v.Title,
+    })
 }
