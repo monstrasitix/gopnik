@@ -15,7 +15,10 @@
 <body>
     {{ template "body" . }}
 
-    <script src="/static/script/form.js"></script>
+    <script src="/static/system.min.js"></script>
+    <script>
+        System.import("/static/script/form.js")
+    </script>
 </body>
 
 </html>

@@ -3,10 +3,12 @@
     "alwaysStrict": true,
     "declaration": false,
     "esModuleInterop": true,
-    "module": "commonjs",
+    "module": "System",
     "noEmit": false,
     "outDir": "./static/script",
-    "paths": {},
+    "paths": {
+        "@/*": ["./web/script/*"]
+    },
     "removeComments": true,
     "rootDir": "./web/script",
     "strict": true,

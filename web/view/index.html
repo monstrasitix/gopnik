@@ -11,6 +11,26 @@
     </nav>
 
     <main class="container -page" style="margin-top: 1rem;">
+        <form novalidate autocomplete="off">
+            <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" class="input" />
+            </div>
+
+            <div>
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" class="input" />
+            </div>
+
+            <div>
+                <button class="button -primary" type="submit">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <main class="container -page" style="margin-top: 1rem;">
         <div class="grid -cols-3">
             {{ range $user := .users }}
                 <div class="box" data-id="{{$user.Id}}">
