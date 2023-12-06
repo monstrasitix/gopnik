@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "declaration": false,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "noEmit": false,
+    "outDir": "./static/script",
+    "paths": {},
+    "removeComments": true,
+    "rootDir": "./web/script",
+    "strict": true,
+    "target": "ES2016",
+  }
+}
