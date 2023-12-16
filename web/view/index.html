@@ -1,5 +1,9 @@
 {{ define "scripts" }}
     <script src="/static/script/form.js"></script>
+
+    <script>
+        new Form("someForm");
+    </script>
 {{ end }}
 
 {{ define "body" }}
@@ -15,7 +19,7 @@
     </nav>
 
     <main class="container -page" style="margin-top: 1rem;">
-        <form novalidate autocomplete="off">
+        <form id="someForm" novalidate autocomplete="off">
             <div>
                 <label for="email">Email</label>
                 <input id="email" name="email" type="email" class="input" />
