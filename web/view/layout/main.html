@@ -14,11 +14,7 @@
 
 <body>
     {{ template "body" . }}
-
-    <script src="/static/system.min.js"></script>
-    <script>
-        System.import("/static/script/form.js")
-    </script>
+    {{ template "scripts" . }}
 </body>
 
 </html>
