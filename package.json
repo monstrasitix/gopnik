@@ -8,6 +8,7 @@
     "sass": "sass ./web/sass:./static/css --no-source-map"
   },
   "devDependencies": {
+    "prettier": "^3.1.1",
     "sass": "^1.69.5",
     "ts-node": "^10.9.1",
     "typescript": "^5.3.3"

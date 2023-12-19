@@ -4,7 +4,6 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi"
-	"github.com/monstrasitix/gopnik/database/user"
 )
 
 type Page struct {
@@ -18,14 +17,11 @@ func Router(router chi.Router) {
 	ConfigureTemplates()
 
     router.Get("/", func(w http.ResponseWriter, r *http.Request) {
-        users := user.GetUsers()
-
         w.Header().Set("Content-Type", "text/html")
 
         Template["index"].ExecuteTemplate(w, "base", map[string]any{
             "lang": "en",
             "title": "Homepage",
-            "users": users,
         })
     })
 }

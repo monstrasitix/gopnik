@@ -1,0 +1,6 @@
+{
+    "endOfLine": "lf",
+    "htmlWhitespaceSensitivity": "css",
+    "singleAttributePerLine": true,
+    "bracketSameLine": true
+}

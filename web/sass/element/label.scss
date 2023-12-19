@@ -1,0 +1,23 @@
+.label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+
+.field-error {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: crimson;
+
+    &[hidden] {
+        display: none;
+    }
+}
+
+
+.field {
+    &+& {
+        margin-top: 1rem;
+    }
+}
