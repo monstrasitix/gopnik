@@ -1,51 +1,28 @@
-{{ define "scripts" }}
-    <script src="/static/script/form.js"></script>
+{{ define "body" }}
+<main class="container -page" style="margin-top: 1rem;">
+    <form id="mainForm" novalidate autocomplete="off">
+        <div class="field">
+            <label class="label" for="email">Email</label>
+            <input class="input" id="email" name="email" type="email" placeholder="Email" required pattern=".*@.*" />
+            <output hidden class="field-error" name="email-error"></output>
+        </div>
 
-    <script>
-        new Form("someForm");
-    </script>
+        <div class="field">
+            <label class="label" for="password">Password</label>
+            <input class="input" id="password" name="password" type="password" placeholder="Password" required />
+            <output hidden class="field-error" name="password-error"></output>
+        </div>
+
+        <div class="field">
+            <button class="button -primary" type="submit">
+                Submit
+            </button>
+        </div>
+    </form>
+</main>
 {{ end }}
 
-{{ define "body" }}
-    <nav class="container">
-        <div class="level" style="margin-top: 1rem;">
-            <img alt="logo" title="logo" src="/static/image/favicon/favicon-32x32.png" />
 
-            <div>
-                <button type="button" class="button -secondary">Sign up</button>
-                <button type="button" class="button -primary">Sign in</button>
-            </div>
-        </div>
-    </nav>
-
-    <main class="container -page" style="margin-top: 1rem;">
-        <form id="someForm" novalidate autocomplete="off">
-            <div>
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" class="input" />
-            </div>
-
-            <div>
-                <label for="password">Password</label>
-                <input id="password" name="password" type="password" class="input" />
-            </div>
-
-            <div>
-                <button class="button -primary" type="submit">
-                    Submit
-                </button>
-            </div>
-        </form>
-    </main>
-
-    <main class="container -page" style="margin-top: 1rem;">
-        <div class="grid -cols-3">
-            {{ range $user := .users }}
-                <div class="box" data-id="{{$user.Id}}">
-                    <h3 class="heading">{{$user.FirstName}} {{$user.LastName}}</h3>
-                    <p class="paragraph">{{$user.Email}}</p>
-                </div>
-            {{end}}
-        </div>
-    </main>
+{{ define "scripts" }}
+<script src="/static/script/form.js"></script>
 {{ end }}

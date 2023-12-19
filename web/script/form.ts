@@ -1,40 +1,51 @@
 type FieldValues = Record<string, string>;
 
-function getValues(form: HTMLFormElement): FieldValues {
-    const values: FieldValues = {};
+function registerForms() {
+    document.addEventListener("change", onChange);
+    document.addEventListener("submit", onSubmit);
 
-    for (const element of form.elements) {
-        if (element instanceof HTMLInputElement) {
-            values[element.name] = element.value;
-        }
-    }
-
-    return values;
-}
-
-class Form {
-    private form: Maybe<HTMLFormElement> = null;
-
-    public constructor(name: string) {
-        this.form = document.getElementById(name) as Maybe<HTMLFormElement>;
-
-        if (this.form) {
-            this.form.addEventListener("blur", this.onBlur);
-            this.form.addEventListener("submit", this.onSubmit);
-        }
-    }
-
-    private onSubmit = (ev: SubmitEvent) => {
+    function onSubmit(ev: SubmitEvent) {
         ev.preventDefault();
+    }
 
-        if (ev.target instanceof HTMLFormElement) {
-            console.log(getValues(ev.target));
+    function onChange(ev: Event) {
+        if (ev.target instanceof HTMLInputElement) {
+            onChangeInput(ev.target);
         }
     }
 
-    private onBlur = (ev: Event) => {
-        if (ev.target instanceof HTMLInputElement && ev.target.form) {
-            console.log(getValues(ev.target.form));
+    function getErrorFlag(validity: ValidityStateFlags): boolean {
+        return Boolean(
+            validity.valueMissing
+            || validity.patternMismatch
+        );
+    }
+
+    function getErrorMessage(validity: ValidityStateFlags): string {
+        switch (true) {
+            case validity.valueMissing:
+                return "Field is required";
+
+            case validity.patternMismatch:
+                return "Invalid format";
+
+            default:
+                return "";
+        }
+    }
+
+    function onChangeInput({ form, name, validity }: HTMLInputElement) {
+        if (!form) {
+            return;
+        }
+
+        const errorElement = form.elements.namedItem(`${name}-error`);
+
+        if (errorElement instanceof HTMLOutputElement) {
+            errorElement.hidden = !getErrorFlag(validity);
+            errorElement.textContent = getErrorMessage(validity);
         }
     }
 }
+
+registerForms();
