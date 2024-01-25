@@ -3,13 +3,14 @@
     <form id="mainForm" novalidate autocomplete="off">
         <div class="field">
             <label class="label" for="email">Email</label>
-            <input class="input" id="email" name="email" type="email" placeholder="Email" required pattern=".*@.*" />
+            <input class="input" id="email" name="email" type="email" placeholder="Email" required />
             <output hidden class="field-error" name="email-error"></output>
         </div>
 
         <div class="field">
             <label class="label" for="password">Password</label>
-            <input class="input" id="password" name="password" type="password" placeholder="Password" required />
+            <input class="input" id="password" name="password" type="password" placeholder="Password" required
+                minlength="4" />
             <output hidden class="field-error" name="password-error"></output>
         </div>
 
