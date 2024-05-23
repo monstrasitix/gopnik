@@ -1,8 +1,8 @@
 type FieldValues = Record<string, string>;
 
 function registerForms() {
-    document.addEventListener("change", onChange);
     document.addEventListener("submit", onSubmit);
+    document.addEventListener("change", onChange);
 
     function onSubmit(ev: SubmitEvent) {
         ev.preventDefault();
@@ -10,7 +10,7 @@ function registerForms() {
         if (ev.target instanceof HTMLFormElement) {
             const isValid = Array.from(ev.target.elements).every((el) => {
                 if (el instanceof HTMLInputElement) {
-                    return isInputValid(el)
+                    return isInputValid(el);
                 }
 
                 return false;
@@ -32,17 +32,17 @@ function registerForms() {
 
     function isInputValid({ validity }: HTMLInputElement): boolean {
         return (
-            validity.badInput
-            || validity.customError
-            || validity.patternMismatch
-            || validity.rangeOverflow
-            || validity.rangeUnderflow
-            || validity.stepMismatch
-            || validity.tooLong
-            || validity.tooShort
-            || validity.typeMismatch
-            || validity.valid
-            || validity.valueMissing
+            validity.badInput ||
+            validity.customError ||
+            validity.patternMismatch ||
+            validity.rangeOverflow ||
+            validity.rangeUnderflow ||
+            validity.stepMismatch ||
+            validity.tooLong ||
+            validity.tooShort ||
+            validity.typeMismatch ||
+            validity.valid ||
+            validity.valueMissing
         );
     }
 
