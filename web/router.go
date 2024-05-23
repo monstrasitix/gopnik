@@ -24,4 +24,14 @@ func Router(router chi.Router) {
             "title": "Homepage",
         })
     })
+
+
+    router.Get("/about", func(w http.ResponseWriter, r *http.Request) {
+        w.Header().Set("Content-Type", "text/html")
+
+        Template["about"].ExecuteTemplate(w, "base", map[string]any{
+            "lang": "en",
+            "title": "About",
+        })
+    })
 }

@@ -2,7 +2,6 @@ package web
 
 import (
 	"html/template"
-	"net/http"
 )
 
 var (
@@ -13,24 +12,13 @@ const (
 	LAYOUT_MAIN = "./web/view/layout/main.html"
 )
 
+func must(paths ...string) *template.Template {
+    return template.Must(template.ParseFiles(paths...))
+}
+
 func ConfigureTemplates() {
 	Template["index"] = must(LAYOUT_MAIN, "./web/view/index.html")
+	Template["about"] = must(LAYOUT_MAIN, "./web/view/about.html")
 }
 
-func must(paths ...string) *template.Template {
-	return template.Must(template.ParseFiles(paths...))
-}
 
-type ViewHandler struct {
-    Name string
-    Title string
-}
-
-func (v ViewHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-    w.Header().Set("Content-Type", "text/html")
-
-	Template[v.Name].ExecuteTemplate(w, "base", map[string]string{
-        "lang": "en",
-        "title": v.Title,
-    })
-}
