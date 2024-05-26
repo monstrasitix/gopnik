@@ -2,7 +2,6 @@ package handler
 
 import (
 	"encoding/json"
-	"log"
 	"net/http"
 
 	"github.com/go-chi/chi"
@@ -28,11 +27,12 @@ var (
 
 func GetProducts(w http.ResponseWriter, r *http.Request) {
 	data, err := json.Marshal(PRODUCTS)
-	if err != nil {
-		log.Fatal("Failed to marshal product")
-	}
 
-	w.Write(data)
+	if err != nil {
+		w.Write([]byte("null"))
+	} else {
+		w.Write(data)
+	}
 }
 
 func GetProduct(w http.ResponseWriter, r *http.Request) {
@@ -52,10 +52,10 @@ func GetProduct(w http.ResponseWriter, r *http.Request) {
 	if found {
 		data, err := json.Marshal(prod)
 		if err != nil {
-			log.Fatal("Failed to marshal product")
+			w.Write([]byte("null"))
+		} else {
+			w.Write(data)
 		}
-
-		w.Write(data)
 	} else {
 		w.Write([]byte("null"))
 	}
