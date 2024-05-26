@@ -2,7 +2,7 @@ package apiV1
 
 import (
 	"github.com/go-chi/chi"
-	"github.com/monstrasitix/gopnik/api/v1/handler"
+	handler "github.com/monstrasitix/gopnik/api/v1/handler"
 )
 
 func Router(router chi.Router) {

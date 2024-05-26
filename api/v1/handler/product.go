@@ -1,19 +1,15 @@
-package handler
+package apiV1handler
 
 import (
 	"encoding/json"
 	"net/http"
 
 	"github.com/go-chi/chi"
+	"github.com/monstrasitix/gopnik/model"
 )
 
-type Product struct {
-	Id    string `json:"id"`
-	Title string `json:"title"`
-}
-
 var (
-	PRODUCTS = []Product{
+	PRODUCTS = []model.Product{
 		{
 			Id:    "1",
 			Title: "Shirt",
@@ -37,7 +33,7 @@ func GetProducts(w http.ResponseWriter, r *http.Request) {
 
 func GetProduct(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
-	prod := Product{}
+	prod := model.Product{}
 	found := false
 
 	for _, product := range PRODUCTS {
